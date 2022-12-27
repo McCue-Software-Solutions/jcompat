@@ -16,13 +16,22 @@ public class FieldCheck extends ClassCheck {
     }
 
     @Override
-    public String toString() {
-        if (getCheckType() == CheckType.REMOVED)
-            return "[FieldCheck] field \"" + f1.name + "\" in class \"" + getC1().name + "\" was removed";
-        if (getCheckType() == CheckType.ACCESS_CHANGE) {
-            return "[FieldCheck] access change of field \"" + f1.name + "\" in class \"" + getC1().name + "\" from " + Util.getAccessModifier(f1.access) + " to " + Util.getAccessModifier(f2.access);
-        }
+    public String name() {
+        return "[FieldCheck]";
+    }
 
-        return super.toString();
+    @Override
+    public String oName() {
+        return "field \"" + getC1().name + " " + f1.name + "\"";
+    }
+
+    @Override
+    public String accOld() {
+        return Util.getAccessModifier(f1.access);
+    }
+
+    @Override
+    public String accNew() {
+        return Util.getAccessModifier(f2.access);
     }
 }

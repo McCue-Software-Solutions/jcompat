@@ -15,14 +15,23 @@ public class ClassCheck extends Check {
     }
 
     @Override
-    public String toString() {
-        if (getCheckType() == CheckType.REMOVED)
-            return "[ClassCheck] class \"" + c1.name + "\" was removed";
-        if (getCheckType() == CheckType.ACCESS_CHANGE) {
-            return "[ClassCheck] access change of class \"" + c1.name + "\" from " + Util.getAccessModifier(c1.access) + " to " + Util.getAccessModifier(c2.access);
-        }
+    public String name() {
+        return "[ClassCheck]";
+    }
 
-        return super.toString();
+    @Override
+    public String oName() {
+        return "class \"" + c1.name + "\"";
+    }
+
+    @Override
+    public String accOld() {
+        return Util.getAccessModifier(c1.access);
+    }
+
+    @Override
+    public String accNew() {
+        return Util.getAccessModifier(c2.access);
     }
 
     public ClassNode getC1() {

@@ -16,13 +16,22 @@ public class MethodCheck extends ClassCheck {
     }
 
     @Override
-    public String toString() {
-        if (getCheckType() == CheckType.REMOVED)
-            return "[MethodCheck] method \"" + m1.name + "\" in class \"" + getC1().name + "\" was removed";
-        if (getCheckType() == CheckType.ACCESS_CHANGE) {
-            return "[MethodCheck] access change of method \"" + m1.name + "\" in class \"" + getC1().name + "\" from " + Util.getAccessModifier(m1.access) + " to " + Util.getAccessModifier(m2.access);
-        }
+    public String name() {
+        return "[MethodCheck]";
+    }
 
-        return super.toString();
+    @Override
+    public String oName() {
+        return "method \"" + getC1().name + " " + m1.name + "()\"";
+    }
+
+    @Override
+    public String accOld() {
+        return Util.getAccessModifier(m1.access);
+    }
+
+    @Override
+    public String accNew() {
+        return Util.getAccessModifier(m1.access);
     }
 }
