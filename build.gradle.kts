@@ -15,7 +15,6 @@ dependencies {
     implementation("org.ow2.asm:asm-tree:9.4")
     implementation("org.ow2.asm:asm-commons:9.4")
     implementation("com.github.Col-E:CAFED00D:1.10.2")
-    implementation("commons-io:commons-io:2.11.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }

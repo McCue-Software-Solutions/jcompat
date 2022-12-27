@@ -1,7 +1,6 @@
 package pl.minus1ms.jcompat;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public final class Jcompat {
     private final Path file1;
@@ -15,8 +14,8 @@ public final class Jcompat {
             System.exit(1);
         }
 
-        file1 = Paths.get(args[0]).toAbsolutePath();
-        file2 = Paths.get(args[1]).toAbsolutePath();
+        file1 = Path.of(args[0]).toAbsolutePath();
+        file2 = Path.of(args[1]).toAbsolutePath();
 
         loader = new Loader();
         analyzer = new Analyzer();

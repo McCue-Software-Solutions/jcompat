@@ -4,7 +4,6 @@ import me.coley.cafedude.InvalidClassException;
 import me.coley.cafedude.classfile.ClassFile;
 import me.coley.cafedude.io.ClassFileReader;
 import me.coley.cafedude.io.ClassFileWriter;
-import org.apache.commons.io.IOUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.commons.JSRInlinerAdapter;
 import org.objectweb.asm.tree.ClassNode;
@@ -37,7 +36,7 @@ public class Loader {
                     continue;
                 }
 
-                loadInputFile(ze.getName(), IOUtils.toByteArray(zis), loadTo);
+                loadInputFile(ze.getName(), zis.readAllBytes(), loadTo);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
